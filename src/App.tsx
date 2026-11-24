@@ -37,10 +37,10 @@ const products = [
 type Account = { name: string; email: string; phone: string; password: string }
 
 const pickupPoints = [
-  { id: 'sadovaya', name: 'БЕРИ на Садовой', address: 'Садовая ул., 18', hours: 'ежедневно 08:00–22:00', lat: 55.7658, lng: 37.6054 },
-  { id: 'arbat', name: 'БЕРИ на Арбате', address: 'ул. Арбат, 24', hours: 'ежедневно 09:00–21:00', lat: 55.7496, lng: 37.5914 },
-  { id: 'tverskaya', name: 'БЕРИ на Тверской', address: 'Тверская ул., 12', hours: 'ежедневно 10:00–22:00', lat: 55.7644, lng: 37.6056 },
-  { id: 'patriki', name: 'БЕРИ в Патриарших', address: 'Малая Бронная ул., 15', hours: 'ежедневно 08:00–22:00', lat: 55.7622, lng: 37.5951 },
+  { id: 'sadovaya', name: 'Borrow шеринг на Садовой', address: 'Садовая ул., 18', hours: 'ежедневно 08:00–22:00', lat: 55.7658, lng: 37.6054 },
+  { id: 'arbat', name: 'Borrow шеринг на Арбате', address: 'ул. Арбат, 24', hours: 'ежедневно 09:00–21:00', lat: 55.7496, lng: 37.5914 },
+  { id: 'tverskaya', name: 'Borrow шеринг на Тверской', address: 'Тверская ул., 12', hours: 'ежедневно 10:00–22:00', lat: 55.7644, lng: 37.6056 },
+  { id: 'patriki', name: 'Borrow шеринг в Патриарших', address: 'Малая Бронная ул., 15', hours: 'ежедневно 08:00–22:00', lat: 55.7622, lng: 37.5951 },
 ]
 
 const categories = [
@@ -80,7 +80,7 @@ function App() {
   return <div className="app">
     <header className="header">
       <button className="logo" onClick={() => navigate('home')} aria-label="На главную">
-        <span className="logoMark"><i></i><i></i><i></i></span>БЕРИ
+        <span className="logoMark"><i></i><i></i><i></i></span>Borrow шеринг
       </button>
       <nav className={menu ? 'nav open' : 'nav'}>
         <button onClick={() => navigate('catalog')}>Каталог</button>
@@ -127,7 +127,7 @@ function Home({ onCatalog }: { onCatalog: () => void }) {
         <div className="imageFrame"><img src={products[0].image} alt="Аккумуляторная дрель"/></div>
         <div className="floating priceFloat"><small>от</small><strong>590 ₽</strong><small>в сутки</small></div>
         <div className="floating available"><span></span>В наличии</div>
-        <div className="cursor">БЕРИ</div>
+        <div className="cursor">Borrow шеринг</div>
       </div>
     </section>
     <section className="section categories">
@@ -326,7 +326,7 @@ function Profile({ user, onCatalog, onProduct, onLogout }: { user: Account; onCa
       {tab === 'rentals' && <><div className="accountTabs"><button className="active">Активные <span>1</span></button><button>Предстоящие</button><button>Завершённые</button></div><article className="rentalCard"><div className="rentalTop"><span><i></i> Сейчас у вас</span><small>Заказ № 20481</small></div><div className="rentalBody"><img src={products[0].image} alt={products[0].name}/><div><small>Инструменты</small><h3>{products[0].name}</h3><p>Аренда до 16 июня, 20:00</p></div><div><small>Вернуть через</small><strong>1 день 8 ч</strong></div></div><div className="rentalFooter"><span><Icon name="pin"/><b>Садовая ул., 18</b></span><button>Продлить аренду</button><button>Детали заказа</button></div></article><div className="profileQuick"><div><Icon name="clock"/><span><b>История заказов</b><small>6 завершённых аренд</small></span></div><div><Icon name="shield"/><span><b>Уровень «Надёжный»</b><small>Следующая аренда без залога</small></span></div></div></>}
       {tab === 'favorites' && <><p className="profileIntro">Сохранённые вещи — мы сообщим, если цена снизится.</p><div className="productGrid profileProducts">{products.slice(0,3).map(p => <ProductCard key={p.id} product={p} onClick={() => onProduct(p)}/>)}</div></>}
       {tab === 'settings' && <div className="settingsCard"><div className="settingsAvatar"><div className="avatar">{initials}</div><span><b>Фотография профиля</b><small>JPG или PNG, не более 5 МБ</small></span><button>Изменить</button></div><div className="settingsFields"><label>Имя<input defaultValue={firstName || user.name}/></label><label>Фамилия<input defaultValue={restName.join(' ')}/></label><label>Телефон<input defaultValue={user.phone}/></label><label>Электронная почта<input defaultValue={user.email}/></label></div><label className="notifyCheck"><input type="checkbox" defaultChecked/> Получать напоминания о возврате</label><button className="primary" onClick={() => setSaved(true)}>{saved ? 'Изменения сохранены' : 'Сохранить'}{saved && <Icon name="check"/>}</button></div>}
-      {tab === 'payments' && <><p className="profileIntro">Карты для быстрой и безопасной оплаты аренды.</p><div className="bankCard"><b>БЕРИ</b><strong>•••• &nbsp; •••• &nbsp; •••• &nbsp; 4589</strong><span>АЛЕКСЕЙ ИВАНОВ <small>08/28</small></span></div><div className="paymentRow"><span><b>Основная карта</b><small>Для оплаты, залогов и возвратов</small></span><button>Удалить</button></div><button className="addCard"><Icon name="plus"/> Добавить карту</button></>}
+      {tab === 'payments' && <><p className="profileIntro">Карты для быстрой и безопасной оплаты аренды.</p><div className="bankCard"><b>Borrow шеринг</b><strong>•••• &nbsp; •••• &nbsp; •••• &nbsp; 4589</strong><span>АЛЕКСЕЙ ИВАНОВ <small>08/28</small></span></div><div className="paymentRow"><span><b>Основная карта</b><small>Для оплаты, залогов и возвратов</small></span><button>Удалить</button></div><button className="addCard"><Icon name="plus"/> Добавить карту</button></>}
       {tab === 'support' && <><p className="profileIntro">Большинство вопросов решаем за несколько минут.</p><div className="supportGrid">{[['clock','Продлить аренду','Изменить дату возврата'],['shield','Проблема с вещью','Сообщить о неисправности'],['pin','Пункты возврата','Адреса и часы работы'],['user','Написать в чат','Ответим за 3 минуты']].map(([icon,title,text]) => <button key={title}><span><Icon name={icon as IconName}/></span><b>{title}</b><small>{text}</small></button>)}</div><div className="supportLine"><span><i></i><b>Служба заботы онлайн</b><small>Ежедневно 08:00–23:00</small></span><button className="primary">Открыть чат <Icon name="arrow"/></button></div></>}
     </div>
   </div>
@@ -334,11 +334,11 @@ function Profile({ user, onCatalog, onProduct, onLogout }: { user: Account; onCa
 
 function InfoPage({ type, onCatalog }: { type: 'how'|'delivery'; onCatalog:()=>void }) {
   const isHow = type === 'how'
-  return <div className="infoPage"><section><span className="eyebrow">{isHow ? 'Просто и прозрачно' : 'Получайте как удобно'}</span><h1>{isHow ? 'Пользуйтесь вещами, не владея ими' : 'Доставка и самовывоз'}</h1><p>{isHow ? 'БЕРИ помогает решать бытовые задачи без лишних покупок. Вы платите только за время, когда вещь действительно нужна.' : 'Заберите заказ рядом с домом или доверьте дорогу нам. Все условия известны заранее.'}</p><button className="primary" onClick={onCatalog}>Выбрать вещь <Icon name="arrow"/></button></section><div className="infoCards">{(isHow ? [['01','Выбираете вещь','Каталог с честными фото, характеристиками и прозрачными тарифами.'],['02','Бронируете даты','Стоимость рассчитывается сразу. Никаких скрытых платежей.'],['03','Пользуетесь','Все вещи чистые, исправные и полностью готовы к работе.'],['04','Возвращаете','Привезите в пункт или вызовите курьера — залог вернётся сразу.']] : [['01','Самовывоз','Более 40 пунктов. Бронь будет ждать вас к выбранному времени.'],['02','Курьером','Доставим в пределах города за два часа или к точному времени.'],['03','Оплата','Картой онлайн. Залог блокируется и возвращается после сдачи.'],['04','Возврат','Верните туда же или закажите курьера в личном кабинете.']]).map(c => <article key={c[0]}><span>{c[0]}</span><h3>{c[1]}</h3><p>{c[2]}</p></article>)}</div></div>
+  return <div className="infoPage"><section><span className="eyebrow">{isHow ? 'Просто и прозрачно' : 'Получайте как удобно'}</span><h1>{isHow ? 'Пользуйтесь вещами, не владея ими' : 'Доставка и самовывоз'}</h1><p>{isHow ? 'Borrow шеринг помогает решать бытовые задачи без лишних покупок. Вы платите только за время, когда вещь действительно нужна.' : 'Заберите заказ рядом с домом или доверьте дорогу нам. Все условия известны заранее.'}</p><button className="primary" onClick={onCatalog}>Выбрать вещь <Icon name="arrow"/></button></section><div className="infoCards">{(isHow ? [['01','Выбираете вещь','Каталог с честными фото, характеристиками и прозрачными тарифами.'],['02','Бронируете даты','Стоимость рассчитывается сразу. Никаких скрытых платежей.'],['03','Пользуетесь','Все вещи чистые, исправные и полностью готовы к работе.'],['04','Возвращаете','Привезите в пункт или вызовите курьера — залог вернётся сразу.']] : [['01','Самовывоз','Более 40 пунктов. Бронь будет ждать вас к выбранному времени.'],['02','Курьером','Доставим в пределах города за два часа или к точному времени.'],['03','Оплата','Картой онлайн. Залог блокируется и возвращается после сдачи.'],['04','Возврат','Верните туда же или закажите курьера в личном кабинете.']]).map(c => <article key={c[0]}><span>{c[0]}</span><h3>{c[1]}</h3><p>{c[2]}</p></article>)}</div></div>
 }
 
 function Footer({ onNavigate }: { onNavigate:(p:string)=>void }) {
-  return <footer><button className="logo light" onClick={() => onNavigate('home')}><span className="logoMark"><i></i><i></i><i></i></span>БЕРИ</button><p>Вещи для жизни. Без лишних покупок.</p><div><button onClick={() => onNavigate('catalog')}>Каталог</button><button onClick={() => onNavigate('how')}>Как это работает</button><button onClick={() => onNavigate('delivery')}>Доставка</button></div><small>© 2025 БЕРИ · Сервис аренды вещей</small></footer>
+  return <footer><button className="logo light" onClick={() => onNavigate('home')}><span className="logoMark"><i></i><i></i><i></i></span>Borrow шеринг</button><p>Вещи для жизни. Без лишних покупок.</p><div><button onClick={() => onNavigate('catalog')}>Каталог</button><button onClick={() => onNavigate('how')}>Как это работает</button><button onClick={() => onNavigate('delivery')}>Доставка</button></div><small>© 2025 Borrow шеринг · Сервис аренды вещей</small></footer>
 }
 
 export default App
