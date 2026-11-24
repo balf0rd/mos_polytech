@@ -338,7 +338,7 @@ function InfoPage({ type, onCatalog }: { type: 'how'|'delivery'; onCatalog:()=>v
 }
 
 function Footer({ onNavigate }: { onNavigate:(p:string)=>void }) {
-  return <footer><button className="logo light" onClick={() => onNavigate('home')}><span className="logoMark"><i></i><i></i><i></i></span>Borrow шеринг</button><p>Вещи для жизни. Без лишних покупок.</p><div><button onClick={() => onNavigate('catalog')}>Каталог</button><button onClick={() => onNavigate('how')}>Как это работает</button><button onClick={() => onNavigate('delivery')}>Доставка</button></div><small>© 2025 Borrow шеринг · Сервис аренды вещей</small></footer>
+  return <footer><button className="logo light" onClick={() => onNavigate('home')}><span className="logoMark"><i></i><i></i><i></i></span>Borrow шеринг</button><p>Вещи для жизни. Без лишних покупок.</p><div><button onClick={() => onNavigate('catalog')}>Каталог</button><button onClick={() => onNavigate('how')}>Как это работает</button><button onClick={() => onNavigate('delivery')}>Доставка</button></div><small>© 2026 Borrow шеринг · Сервис аренды вещей</small></footer>
 }
 
 export default App
