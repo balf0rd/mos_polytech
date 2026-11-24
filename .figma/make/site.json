@@ -1,0 +1,11 @@
+{
+  "title": "beri",
+  "description": "A polished, multi-page website built around the subject described in the documentation, helping visitors explore its content and find key information.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
